@@ -18,29 +18,31 @@ interface UniversityCardProps {
 const UniversityCard = ({
   university: { name, logoUrl, shortName, slug },
 }: UniversityCardProps) => (
-  <Card variant={"elevated"} maxWidth={"lg"}>
-    <Flex direction={"column"}>
-      <CardHeader>
+  <Box as="li" listStyleType={"none"}>
+    <Card variant={"elevated"} maxWidth={"lg"} as={"article"} height={"100%"}>
+      <Flex direction={"column"}>
+        <CardHeader minH={"130px"}>
+          <Box>
+            <Heading size={"lg"}>{name}</Heading>
+          </Box>
+          <Box>
+            <Text>{shortName}</Text>
+          </Box>
+        </CardHeader>
         <Box>
-          <Heading>{name}</Heading>
+          <Image src={logoUrl} alt={`Logo of ${name}`}></Image>
         </Box>
-        <Box>
-          <Text>{shortName}</Text>
-        </Box>
-      </CardHeader>
-      <Box>
-        <Image src={logoUrl} alt={`Logo of ${name}`}></Image>
-      </Box>
 
-      <CardFooter justifyContent={"center"} display={"flex"}>
-        <Link href={slug}>
-          <Button as="span">
-            <Text>More details</Text>
-          </Button>
-        </Link>
-      </CardFooter>
-    </Flex>
-  </Card>
+        <CardFooter justifyContent={"center"} display={"flex"}>
+          <Link href={slug}>
+            <Button as="span">
+              <Text>More details</Text>
+            </Button>
+          </Link>
+        </CardFooter>
+      </Flex>
+    </Card>
+  </Box>
 );
 
 export default UniversityCard;
