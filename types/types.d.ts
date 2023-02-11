@@ -6,6 +6,18 @@ export interface University {
   logoUrl: string;
 }
 
+export interface UniversityResponse {
+  data: University[];
+  meta: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total?: number;
+    };
+  };
+}
+
 export interface Environments {
   baseUrl: string;
 }
