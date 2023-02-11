@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter } from "@chakra-ui/card";
+import { Card, CardFooter } from "@chakra-ui/card";
 import {
   Box,
   Button,
@@ -10,8 +10,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { University } from "types/types";
-
-import NextLink from "next/link";
 
 interface UniversityCardProps {
   university: University;
