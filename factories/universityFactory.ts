@@ -11,3 +11,6 @@ const universityFactory = Factory.define<University>(() => ({
 }));
 
 export const getUniversity = () => universityFactory.build();
+
+export const getUniversities = (count: number) =>
+  universityFactory.buildList(count);
