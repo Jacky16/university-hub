@@ -17,6 +17,17 @@ const customJestConfig = {
     "^@factories/(.*)$": "<rootDir>/factories/$1",
   },
   testEnvironment: "jest-environment-jsdom",
+  moduleDirectories: ["node_modules", "<rootDir>/"],
+  testMatch: ["**/*.test.{tsx,ts}"],
+  collectCoverageFrom: [
+    "**/*.{ts,tsx}",
+    "!**/_app.tsx",
+    "!**/_document.tsx",
+    "!<rootDir>/.next/**",
+    "!<rootDir>/*.config.{js, cjs}",
+    "!<rootDir>/coverage/**",
+    "!<rootDir>/snapshots/**",
+  ],
 };
 
 module.exports = createJestConfig(customJestConfig);
