@@ -5,3 +5,7 @@ export interface University {
   shortName?: string;
   logoUrl: string;
 }
+
+export interface Environments {
+  baseUrl: string;
+}
