@@ -1,8 +1,8 @@
 import endpoints from "routes/apiEndpoints";
-import { UniversityResponse } from "types/types";
+import { University, UniversityResponse } from "types/types";
 import fetch from "node-fetch";
 
-const { listOfUniversities } = endpoints;
+const { listOfUniversities, getUrlUniversity } = endpoints;
 
 const useUniversities = () => {
   const getUniversities = async (perPage: number, pageParam = 0) => {
@@ -18,7 +18,17 @@ const useUniversities = () => {
     return data;
   };
 
-  return { getUniversities };
+  const getUniversity = async (id: number | string) => {
+    const url = new URL(getUrlUniversity(id));
+
+    const response = await fetch(url);
+
+    const universityData = (await response.json()) as University;
+
+    return universityData;
+  };
+
+  return { getUniversities, getUniversity };
 };
 
 export default useUniversities;
