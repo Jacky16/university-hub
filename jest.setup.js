@@ -4,7 +4,7 @@
 // Used for __tests__/testing-library.js
 // Learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom/extend-expect";
-import { server } from "./__mocks__/server";
+import { server } from "./mocks/server";
 
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
