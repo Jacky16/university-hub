@@ -1,11 +1,12 @@
 import endpoints from "routes/apiEndpoints";
 import { UniversityResponse } from "types/types";
+import fetch from "node-fetch";
+
+const { listOfUniversities } = endpoints;
 
 const useUniversities = () => {
-  const { listOfUniversities: getListUniversities } = endpoints;
-
   const getUniversities = async (perPage: number, pageParam = 0) => {
-    const url = new URL(getListUniversities);
+    const url = new URL(listOfUniversities);
 
     url.searchParams.set("pagination[page]", pageParam.toString());
     url.searchParams.set("pagination[pageSize]", perPage.toString());
