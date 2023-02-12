@@ -2,8 +2,9 @@ import { getUniversities } from "@factories/universityFactory";
 import { rest } from "msw";
 import endpoints from "routes/apiEndpoints";
 import { UniversityResponse } from "types/types";
+import { mockUniversity } from "./mockUniversities";
 
-const { listOfUniversities } = endpoints;
+const { listOfUniversities, getUrlUniversity } = endpoints;
 export const handlers = [
   rest.get(listOfUniversities, (req, res, ctx) => {
     const limit = req.url.searchParams.get("pagination[pageSize]");
@@ -24,4 +25,8 @@ export const handlers = [
 
     return res(ctx.json(response));
   }),
+
+  rest.get(getUrlUniversity(mockUniversity.id), (req, res, ctx) =>
+    res(ctx.status(200), ctx.json(mockUniversity))
+  ),
 ];
