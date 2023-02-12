@@ -11,15 +11,15 @@ import {
 import useInfinityUniversities from "hooks/useInfinityUniversities";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export default function Home() {
+export default function Universities() {
   const { universities, fetchNextPage, isLoading, hasNextPage } =
     useInfinityUniversities(100);
   return (
     <>
       <HeadLayout
         headData={{
-          title: "Home",
-          description: "Home page",
+          title: "Universities",
+          description: "List of all universities of Spain",
         }}
       />
       <VStack

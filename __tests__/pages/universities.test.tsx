@@ -1,4 +1,4 @@
-import Home from "@/pages/index";
+import Universities from "@/pages/universities";
 import { fireEvent, render, screen } from "@testing-library/react";
 import RenderWrapper from "mocks/RenderWrapper";
 import useInfinityUniversities from "hooks/useInfinityUniversities";
@@ -8,7 +8,7 @@ const mockedUseInfinityUniversities = useInfinityUniversities as jest.Mock<any>;
 
 jest.mock("../../hooks/useInfinityUniversities");
 
-describe("Given the index page", () => {
+describe("Given the universities page", () => {
   beforeEach(() => {
     mockedUseInfinityUniversities.mockReturnValue({
       universities: [],
@@ -24,7 +24,7 @@ describe("Given the index page", () => {
     test("Then it should show a heading level 2 with name 'Universities'", () => {
       const expectedTitle = "Universities";
 
-      render(<Home />, { wrapper: RenderWrapper });
+      render(<Universities />, { wrapper: RenderWrapper });
 
       const title = screen.getByRole("heading", {
         level: 2,
@@ -43,7 +43,7 @@ describe("Given the index page", () => {
         hasNextPage: true,
       });
 
-      render(<Home />, { wrapper: RenderWrapper });
+      render(<Universities />, { wrapper: RenderWrapper });
 
       const universities = screen.getAllByRole("listitem");
 
@@ -55,7 +55,7 @@ describe("Given the index page", () => {
     test("Then it should show a spinner", () => {
       const expectedNameSpinner = "Loading...";
 
-      render(<Home />, { wrapper: RenderWrapper });
+      render(<Universities />, { wrapper: RenderWrapper });
 
       const spinner = screen.getByText(expectedNameSpinner);
 
@@ -75,7 +75,7 @@ describe("Given the index page", () => {
         fetchNextPage: mockFetchNextPage,
       });
 
-      render(<Home />, { wrapper: RenderWrapper });
+      render(<Universities />, { wrapper: RenderWrapper });
 
       await fireEvent.scroll(window, {
         target: {
