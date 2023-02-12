@@ -21,3 +21,8 @@ export interface UniversityResponse {
 export interface Environments {
   baseUrl: string;
 }
+
+export interface HeadStructure {
+  title: string;
+  description: string;
+}
