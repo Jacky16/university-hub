@@ -26,3 +26,13 @@ export interface HeadStructure {
   title: string;
   description: string;
 }
+
+export interface HomePageData {
+  title: string;
+  description: string;
+  card: {
+    title: string;
+    description: string;
+    universitiesHref: string;
+  };
+}
