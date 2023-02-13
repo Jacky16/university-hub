@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 import { ChakraProvider, theme } from "@chakra-ui/react";
 
 interface RenderWrapperProps {
+  // eslint-disable-next-line no-undef
   children: ReactElement;
 }
 
