@@ -51,8 +51,8 @@ const HomePage = ({
     <Flex direction={"column"} alignItems={"center"} gap={"16"}>
       <Flex
         as={"section"}
-        backgroundColor={"blue.500"}
-        textColor={"white"}
+        backgroundColor={"secondary"}
+        textColor={"textSecondary"}
         padding={{
           base: "1rem",
           sm: "2rem",
@@ -86,7 +86,7 @@ const HomePage = ({
             height={500}
             style={{
               objectFit: "contain",
-              borderRadius: "25px",
+              borderRadius: "12px",
               borderTopRightRadius: "80px",
             }}
             src="/images/student-logo.webp"
@@ -103,6 +103,7 @@ const HomePage = ({
         shadow={"2xl"}
         padding={"6"}
         borderRadius={"xl"}
+        textColor={"textPrimary"}
       >
         <CardHeader>
           <Text
@@ -125,17 +126,15 @@ const HomePage = ({
         >
           <Text>{cardDescription}</Text>
           <Box animation={animationDownArrow} as={motion.div}>
-            <ArrowDownIcon boxSize={"24"} color={"gray.900"} />
+            <ArrowDownIcon boxSize={"24"} />
           </Box>
 
           <Link href={universitiesHref}>
             <Button
-              variant={"outline"}
-              backgroundColor={"white"}
+              variant="buttonBrandPrimary"
               as="span"
-              rightIcon={<ViewIcon boxSize={"8"} />}
+              rightIcon={<ViewIcon boxSize={"6"} />}
               size={"lg"}
-              padding={"7"}
             >
               <Text
                 fontSize={{
