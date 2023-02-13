@@ -34,7 +34,7 @@ const UniversityCard = ({
         </Box>
 
         <CardFooter justifyContent={"center"} display={"flex"}>
-          <Link href={slug}>
+          <Link href={`universities/${slug}`}>
             <Button as="span">
               <Text>More details</Text>
             </Button>

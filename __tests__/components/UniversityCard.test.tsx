@@ -31,13 +31,14 @@ describe("Given the UniversityCard component", () => {
 
     test(`Should render a link with href ${university.slug} and name 'More Details'`, () => {
       const nameLink = "More details";
+      const expectedHref = `universities/${university.slug}`;
 
       render(<UniversityCard university={university} />);
 
       const link = screen.getByRole("link", { name: nameLink });
 
       expect(link).toBeInTheDocument();
-      expect(link).toHaveAttribute("href", university.slug);
+      expect(link).toHaveAttribute("href", expectedHref);
     });
   });
 });
