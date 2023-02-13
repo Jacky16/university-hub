@@ -2,7 +2,7 @@ import UniversityDetail from "@/components/UniversityDetail";
 import { Button, Flex, Spinner } from "@chakra-ui/react";
 import { faker } from "@faker-js/faker";
 import apiUseUniversities from "hooks/useUniversities";
-import { GetServerSideProps } from "next";
+import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 import { University } from "types/types";
@@ -76,8 +76,12 @@ UniversityPageProps): JSX.Element => {
 
 export default UniversityPage;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const { universityId } = params as { universityId: string };
+export const getServerSideProps = async (
+  ctx: GetServerSidePropsContext<{
+    universityId: string;
+  }>
+) => {
+  const universityId = ctx.params?.universityId!;
 
   const { getUniversity } = apiUseUniversities();
   const university = await getUniversity(universityId);
