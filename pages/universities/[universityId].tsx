@@ -48,7 +48,7 @@ UniversityPageProps): JSX.Element => {
 
   return (
     <Flex direction={"column"} gap={8}>
-      <UniversityDetail university={university!} description={description} />
+      <UniversityDetail university={university} description={description} />
       <Button
         size={"lg"}
         alignSelf={{
