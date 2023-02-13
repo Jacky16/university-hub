@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 import { University } from "types/types";
 import { ArrowLeftIcon } from "@chakra-ui/icons";
+import HeadLayout from "@/components/HeadLayout";
 
 interface UniversityPageProps {
   initialUniversity: University;
@@ -47,20 +48,28 @@ UniversityPageProps): JSX.Element => {
   }
 
   return (
-    <Flex direction={"column"} gap={8}>
-      <UniversityDetail university={university} description={description} />
-      <Button
-        size={"lg"}
-        alignSelf={{
-          base: "stretch",
-          md: "center",
+    <>
+      <HeadLayout
+        headData={{
+          title: university.name,
+          description,
         }}
-        leftIcon={<ArrowLeftIcon />}
-        onClick={handleBack}
-      >
-        Back
-      </Button>
-    </Flex>
+      />
+      <Flex direction={"column"} gap={8}>
+        <UniversityDetail university={university} description={description} />
+        <Button
+          size={"lg"}
+          alignSelf={{
+            base: "stretch",
+            md: "center",
+          }}
+          leftIcon={<ArrowLeftIcon />}
+          onClick={handleBack}
+        >
+          Back
+        </Button>
+      </Flex>
+    </>
   );
 };
 
