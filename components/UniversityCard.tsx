@@ -5,10 +5,11 @@ import {
   CardHeader,
   Flex,
   Heading,
-  Image,
   Link,
   Text,
 } from "@chakra-ui/react";
+
+import Image from "next/image";
 import { University } from "types/types";
 
 interface UniversityCardProps {
@@ -21,7 +22,7 @@ const UniversityCard = ({
   <Box as="li" listStyleType={"none"}>
     <Card variant={"elevated"} maxWidth={"lg"} as={"article"} height={"100%"}>
       <Flex direction={"column"}>
-        <CardHeader minH={"130px"}>
+        <CardHeader minH={"150px"}>
           <Box>
             <Heading size={"lg"}>{name}</Heading>
           </Box>
@@ -29,8 +30,17 @@ const UniversityCard = ({
             <Text>{shortName}</Text>
           </Box>
         </CardHeader>
-        <Box>
-          <Image src={logoUrl} alt={`Logo of ${name}`}></Image>
+        <Box position={"relative"} minHeight={"100px"}>
+          <Image
+            fill
+            sizes={"100%"}
+            style={{
+              objectFit: "contain",
+            }}
+            src={logoUrl}
+            alt={`Logo of ${name}`}
+            priority
+          ></Image>
         </Box>
 
         <CardFooter justifyContent={"center"} display={"flex"}>
