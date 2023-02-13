@@ -66,13 +66,12 @@ describe("Given the UniversityPage", () => {
 });
 
 describe("Given the function getServerSideProps", () => {
-  mockFetch.mockResponseOnce(
-    JSON.stringify({
-      initialUniversity: mockUniversity,
-    })
-  );
-
   describe("When is called with a valid universityId", () => {
+    mockFetch.mockResponseOnce(
+      JSON.stringify({
+        initialUniversity: mockUniversity,
+      })
+    );
     test(`Then it should return the university ${mockUniversity.name}`, async () => {
       const context: Partial<
         GetServerSidePropsContext<{ universityId: string }>
@@ -88,6 +87,40 @@ describe("Given the function getServerSideProps", () => {
       );
       expect(props).toHaveProperty("initialUniversity", mockUniversity);
       expect(props).toHaveProperty("description");
+    });
+  });
+
+  describe("When is called with a invalid universityId", () => {
+    const expectedResponse = {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+      },
+    };
+
+    mockFetch.mockResponseOnce(
+      JSON.stringify({
+        expectedResponse,
+      })
+    );
+
+    test("Then it should return a 404 error and object with a destination page 404", async () => {
+      const expectedDestination = "/404";
+
+      const context: Partial<
+        GetServerSidePropsContext<{ universityId: string }>
+      > = {
+        params: {
+          universityId: "",
+        },
+        query: {},
+      };
+
+      const { redirect } = await getServerSideProps(
+        context as GetServerSidePropsContext<{ universityId: string }>
+      );
+
+      expect(redirect).toHaveProperty("destination", expectedDestination);
     });
   });
 });
