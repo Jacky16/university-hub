@@ -7,7 +7,7 @@ interface UniversityCardListProps {
 }
 
 const UniversityCardList = ({ universities }: UniversityCardListProps) => (
-  <SimpleGrid columns={[1, 2, 3]} spacing={24} as="ul">
+  <SimpleGrid columns={[1, 2]} spacing={24} as="ul">
     {universities.map((university) => (
       <UniversityCard key={university.id} university={university} />
     ))}

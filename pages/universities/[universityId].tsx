@@ -63,6 +63,7 @@ UniversityPageProps): JSX.Element => {
             base: "stretch",
             md: "center",
           }}
+          variant={"buttonBrandPrimary"}
           leftIcon={<ArrowLeftIcon />}
           onClick={handleBack}
         >

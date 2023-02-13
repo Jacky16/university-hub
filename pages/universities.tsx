@@ -13,7 +13,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Universities() {
   const { universities, fetchNextPage, isLoading, hasNextPage } =
-    useInfinityUniversities(100);
+    useInfinityUniversities(30);
   return (
     <>
       <HeadLayout
@@ -48,6 +48,7 @@ export default function Universities() {
                   emptyColor="gray.200"
                   color="blue.500"
                   size="xl"
+                  textColor={"secondary"}
                 />
               </Flex>
             }

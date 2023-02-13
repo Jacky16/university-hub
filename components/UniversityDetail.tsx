@@ -1,4 +1,4 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Divider, Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { University } from "types/types";
 
@@ -19,14 +19,25 @@ const UniversityDetail = ({
     gap={4}
     shadow={"2xl"}
     borderRadius={"xl"}
+    backgroundColor={"secondary"}
+    textColor={"textSecondary"}
   >
     <Flex alignItems={"center"} direction={"column"}>
       <Heading>{name}</Heading>
       <Text fontSize={"2xl"}>{shortName}</Text>
     </Flex>
 
-    <Image src={logoUrl} alt={`Logo of ${name}`} width={200} height={200} />
+    <Image
+      src={logoUrl}
+      alt={`Logo of ${name}`}
+      width={200}
+      height={200}
+      style={{
+        borderRadius: "4px",
+      }}
+    />
 
+    <Divider />
     <Flex direction={"column"} gap={2} alignSelf={"start"}>
       <Heading alignSelf={"start"} as={"h3"}>
         Description
