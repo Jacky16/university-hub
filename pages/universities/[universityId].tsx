@@ -42,21 +42,16 @@ UniversityPageProps): JSX.Element => {
     );
   }
 
-  if (!university) {
-    router.push("/404");
-    return <></>;
-  }
-
   return (
     <>
       <HeadLayout
         headData={{
-          title: university.name,
+          title: university!.name,
           description,
         }}
       />
       <Flex direction={"column"} gap={8}>
-        <UniversityDetail university={university} description={description} />
+        <UniversityDetail university={university!} description={description} />
         <Button
           size={"lg"}
           alignSelf={{
@@ -85,6 +80,16 @@ export const getServerSideProps = async (
 
   const { getUniversity } = apiUseUniversities();
   const university = await getUniversity(universityId);
+
+  if (university.id === undefined) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+      },
+      props: {},
+    };
+  }
 
   const description = faker.lorem.paragraphs(3);
 
