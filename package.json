@@ -9,6 +9,8 @@
     "test:ci": "jest --ci",
     "test:coverage": "jest --coverage --watchAll=false",
     "prepare": "husky install",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "lint": "next lint"
   },
   "dependencies": {
@@ -17,6 +19,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@faker-js/faker": "^7.6.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "fishery": "^2.2.2",
     "framer-motion": "^9.0.2",
     "next": "latest",
