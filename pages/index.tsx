@@ -11,7 +11,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { ArrowDownIcon, ViewIcon } from "@chakra-ui/icons";
+import { ArrowDownIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HomePageData } from "types/types";
@@ -130,12 +130,7 @@ const HomePage = ({
           </Box>
 
           <Link href={universitiesHref}>
-            <Button
-              variant="buttonBrandPrimary"
-              as="span"
-              rightIcon={<ViewIcon boxSize={"6"} />}
-              size={"lg"}
-            >
+            <Button variant="buttonBrandPrimary" as="span" size={"lg"}>
               <Text
                 fontSize={{
                   base: "xl",
