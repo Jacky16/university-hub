@@ -6,13 +6,13 @@ describe("Given the UniversityCard component", () => {
   describe("When it's rendered with a universityProp", () => {
     const university = getUniversity();
 
-    test(`Should render the university name inside of heading level 2 with name ${university.name}`, () => {
+    test(`Should render the university name inside of heading level 3 with name ${university.name}`, () => {
       const expectedUniversityName = university.name;
 
       render(<UniversityCard university={university} />);
 
       const universityName = screen.getByRole("heading", {
-        level: 2,
+        level: 3,
         name: expectedUniversityName,
       });
 

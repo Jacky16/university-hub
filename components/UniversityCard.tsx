@@ -40,7 +40,9 @@ const UniversityCard = ({
           minHeight={"150px"}
         >
           <Box>
-            <Heading size={"lg"}>{name}</Heading>
+            <Heading as={"h3"} size={"lg"}>
+              {name}
+            </Heading>
           </Box>
           <Box>
             <Text>{shortName}</Text>
