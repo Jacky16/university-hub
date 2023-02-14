@@ -3,7 +3,7 @@ import { Factory } from "fishery";
 import { faker } from "@faker-js/faker";
 
 const universityFactory = Factory.define<University>(() => ({
-  id: parseFloat(Date.now() + faker.random.numeric()),
+  id: faker.database.mongodbObjectId(),
   slug: faker.lorem.slug(),
   name: faker.company.name(),
   shortName: faker.company.companySuffix(),
