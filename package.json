@@ -19,7 +19,6 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@faker-js/faker": "^7.6.0",
-    "eslint-plugin-cypress": "^2.12.1",
     "fishery": "^2.2.2",
     "framer-motion": "^9.0.2",
     "next": "latest",
@@ -30,6 +29,7 @@
     "react-query": "^3.39.3"
   },
   "devDependencies": {
+    "eslint-plugin-cypress": "^2.12.1",
     "@next/eslint-plugin-next": "^13.1.6",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.2.0",

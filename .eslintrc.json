@@ -9,6 +9,6 @@
     "plugin:@next/next/recommended",
     "xo",
     "prettier",
-    "cypress"
+    "plugin:cypress/recommended"
   ]
 }
